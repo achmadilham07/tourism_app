@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:tourism_app/model/place.dart';
 
 class DetailPage extends StatelessWidget {
-  const DetailPage({super.key});
+  const DetailPage({
+    super.key,
+    required this.item,
+  });
+
+  final Place item;
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +21,7 @@ class DetailPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Image.network(
-                  "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Kelimutu_2008-08-08.jpg/800px-Kelimutu_2008-08-08.jpg"),
+              Image.network(item.image),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
@@ -30,19 +35,19 @@ class DetailPage extends StatelessWidget {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Text(
-                          "Nama Tempat",
+                          item.name,
                           style: Theme.of(context).textTheme.titleLarge,
                         ),
                         const SizedBox(height: 4),
                         Text(
-                          "Alamat",
+                          item.address,
                           style: Theme.of(context).textTheme.labelLarge,
                         ),
                       ],
                     ),
                     const SizedBox(height: 16),
                     Text(
-                      "Likes 35",
+                      "Likes ${item.like}",
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                   ],
@@ -52,7 +57,7 @@ class DetailPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  "Deskripsi",
+                  item.description,
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
               ),
