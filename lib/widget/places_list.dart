@@ -22,7 +22,7 @@ class PlacesList extends StatelessWidget {
       primary: false,
       itemBuilder: (context, index) {
         final item = places[index];
-        return const PlaceCard();
+        return PlaceCard(item: item);
       },
     );
   }

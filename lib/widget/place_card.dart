@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:tourism_app/model/place.dart';
 
 class PlaceCard extends StatelessWidget {
-  const PlaceCard({super.key});
+  const PlaceCard({
+    super.key,
+    required this.item,
+  });
+
+  final Place item;
 
   @override
   Widget build(BuildContext context) {
@@ -15,14 +21,14 @@ class PlaceCard extends StatelessWidget {
           ClipRRect(
             borderRadius: const BorderRadius.vertical(top: Radius.circular(10)),
             child: Image.network(
-              "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Kelimutu_2008-08-08.jpg/800px-Kelimutu_2008-08-08.jpg",
+              item.image,
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.all(8),
+          Padding(
+            padding: const EdgeInsets.all(8),
             child: ListTile(
-              title: Text("name"),
-              subtitle: Text("address"),
+              title: Text(item.name),
+              subtitle: Text(item.address),
             ),
           )
         ],
