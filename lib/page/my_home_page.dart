@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tourism_app/widget/heading_home.dart';
-import 'package:tourism_app/widget/place_card.dart';
+import 'package:tourism_app/widget/places_list.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -40,18 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   return const CircularProgressIndicator();
                 }
 
-                return ListView.builder(
-                  itemCount: 10,
-                  shrinkWrap: true,
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 4,
-                    horizontal: 16,
-                  ),
-                  primary: false,
-                  itemBuilder: (context, index) {
-                    return const PlaceCard();
-                  },
-                );
+                return const PlacesList();
               },
             ),
           ],
