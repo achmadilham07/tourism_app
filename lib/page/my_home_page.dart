@@ -10,6 +10,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  late Future<String> _loadJson;
+
+  @override
+  void initState() {
+    _loadJson =
+        DefaultAssetBundle.of(context).loadString('assets/tourism.json');
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,16 +32,26 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisSize: MainAxisSize.max,
           children: [
             const HeadingHome(),
-            ListView.builder(
-              itemCount: 10,
-              shrinkWrap: true,
-              padding: const EdgeInsets.symmetric(
-                vertical: 4,
-                horizontal: 16,
-              ),
-              primary: false,
-              itemBuilder: (context, index) {
-                return const PlaceCard();
+            FutureBuilder<String>(
+              future: _loadJson,
+              builder: (context, snapshot) {
+                final state = snapshot.data;
+                if (state == null) {
+                  return const CircularProgressIndicator();
+                }
+
+                return ListView.builder(
+                  itemCount: 10,
+                  shrinkWrap: true,
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 4,
+                    horizontal: 16,
+                  ),
+                  primary: false,
+                  itemBuilder: (context, index) {
+                    return const PlaceCard();
+                  },
+                );
               },
             ),
           ],
