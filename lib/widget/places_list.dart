@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:tourism_app/model/place.dart';
 import 'package:tourism_app/widget/place_card.dart';
 
 class PlacesList extends StatelessWidget {
   const PlacesList({
     super.key,
+    required this.places,
   });
+
+  final List<Place> places;
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +21,7 @@ class PlacesList extends StatelessWidget {
       ),
       primary: false,
       itemBuilder: (context, index) {
+        final item = places[index];
         return const PlaceCard();
       },
     );

@@ -1,10 +1,10 @@
 import 'package:tourism_app/model/place.dart';
 
 class TourismResponse {
-  final bool error;
+  bool error;
   final String message;
   final int count;
-  final List<Place> places;
+  List<Place> places;
 
   TourismResponse({
     required this.error,

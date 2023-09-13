@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:tourism_app/model/tourism_response.dart';
 import 'package:tourism_app/widget/heading_home.dart';
 import 'package:tourism_app/widget/places_list.dart';
 
@@ -35,12 +38,15 @@ class _MyHomePageState extends State<MyHomePage> {
             FutureBuilder<String>(
               future: _loadJson,
               builder: (context, snapshot) {
-                final state = snapshot.data;
-                if (state == null) {
+                final data = snapshot.data;
+                if (data == null) {
                   return const CircularProgressIndicator();
                 }
+                final TourismResponse response = TourismResponse.fromMap(
+                  jsonDecode(data),
+                );
 
-                return const PlacesList();
+                return PlacesList(places: response.places);
               },
             ),
           ],
