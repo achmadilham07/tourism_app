@@ -21,7 +21,11 @@ class DetailPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Image.network(item.image),
+              Image.network(
+                item.image,
+                width: double.infinity,
+                fit: BoxFit.cover,
+              ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(

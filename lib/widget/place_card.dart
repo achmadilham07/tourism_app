@@ -33,6 +33,8 @@ class PlaceCard extends StatelessWidget {
                   const BorderRadius.vertical(top: Radius.circular(10)),
               child: Image.network(
                 item.image,
+                width: double.infinity,
+                fit: BoxFit.cover,
               ),
             ),
             Padding(
