@@ -16,6 +16,7 @@ void main() async {
         ? HydratedStorage.webStorageDirectory
         : await getApplicationDocumentsDirectory(),
   );
+  if (kDebugMode) await HydratedBloc.storage.clear();
 
   di.init();
   runApp(const App());
