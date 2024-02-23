@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tourism_app/favorite/cubit/favorite_cubit.dart';
+import 'package:tourism_app/bookmark/cubit/bookmark_cubit.dart';
 import 'package:tourism_app/destinations/model/destination.dart';
 
-class FavoriteButton extends StatelessWidget {
-  const FavoriteButton({
+class BookmarkButton extends StatelessWidget {
+  const BookmarkButton({
     super.key,
     required this.destination,
   });
@@ -14,15 +14,15 @@ class FavoriteButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocSelector<FavoriteCubit, FavoriteState, bool>(
+    return BlocSelector<BookmarkCubit, BookmarkState, bool>(
       selector: (state) => state.contains(destination),
-      builder: (context, isFavorite) => IconButton(
+      builder: (context, isBookmark) => IconButton(
         icon: Icon(
-          isFavorite ? Icons.favorite : Icons.favorite_border,
-          color: isFavorite ? Colors.pinkAccent : null,
+          isBookmark ? Icons.bookmark : Icons.bookmark_border,
+          color: isBookmark ? Colors.orange : Colors.white,
         ),
         onPressed: () {
-          context.read<FavoriteCubit>().toggleFavorite(destination);
+          context.read<BookmarkCubit>().toggleBookmark(destination);
           HapticFeedback.mediumImpact();
         },
       ),

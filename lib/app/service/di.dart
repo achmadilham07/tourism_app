@@ -1,6 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:tourism_app/destinations/cubit/destination_list_cubit.dart';
-import 'package:tourism_app/favorite/cubit/favorite_cubit.dart';
+import 'package:tourism_app/bookmark/cubit/bookmark_cubit.dart';
 import 'package:tourism_app/launchpad/cubit/launchpad_cubit.dart';
 import 'package:tourism_app/repository/local/load_asset.dart';
 import 'package:tourism_app/repository/local/local_service.dart';
@@ -28,6 +28,6 @@ void init() {
   );
 
   di.registerFactory(
-    () => FavoriteCubit(),
+    () => BookmarkCubit(),
   );
 }

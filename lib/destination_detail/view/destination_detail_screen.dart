@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tourism_app/app/widget/text_widget.dart';
-import 'package:tourism_app/favorite/view/favorite_button.dart';
+import 'package:tourism_app/bookmark/view/bookmark_button.dart';
 import 'package:tourism_app/app/widget/app_bar.dart';
 import 'package:tourism_app/destinations/model/destination.dart';
 
@@ -40,7 +40,7 @@ class DestinationDetailView extends StatelessWidget {
         slivers: [
           DestinationSliverAppBar(
             actions: [
-              FavoriteButton(destination: destination),
+              BookmarkButton(destination: destination),
             ],
           ),
           SliverToBoxAdapter(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tourism_app/app/widget/text_widget.dart';
-import 'package:tourism_app/favorite/view/favorite_button.dart';
+import 'package:tourism_app/bookmark/view/bookmark_button.dart';
 import 'package:tourism_app/destinations/model/destination.dart';
 
 class DestinationWidget extends StatelessWidget {
@@ -30,6 +30,7 @@ class DestinationWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textStyle = Theme.of(context).textTheme;
     return Card(
       elevation: 7,
       shape: RoundedRectangleBorder(borderRadius: border),
@@ -40,8 +41,11 @@ class DestinationWidget extends StatelessWidget {
         borderRadius: border,
         child: Stack(
           children: [
-            ShaderMask(
-              shaderCallback: (bounds) => gradient.createShader(bounds),
+            ColorFiltered(
+              colorFilter: const ColorFilter.mode(
+                Colors.black26,
+                BlendMode.multiply,
+              ),
               child: Image.network(
                 destination.image,
                 fit: BoxFit.cover,
@@ -50,7 +54,7 @@ class DestinationWidget extends StatelessWidget {
             Positioned(
               top: 0,
               right: 0,
-              child: FavoriteButton(
+              child: BookmarkButton(
                 destination: destination,
               ),
             ),
@@ -68,22 +72,27 @@ class DestinationWidget extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         const Icon(
-                          Icons.star,
-                          color: Colors.amber,
+                          Icons.favorite,
+                          color: Colors.red,
                         ),
                         TextWidget(
                           destination.like.toString(),
+                          style: textStyle.titleMedium
+                              ?.copyWith(color: Colors.white),
                         ),
                       ],
                     ),
                     const SizedBox(height: 8),
                     TextWidget.heading(
                       destination.address,
+                      style:
+                          textStyle.titleSmall?.copyWith(color: Colors.white),
                     ),
                     const SizedBox(height: 8),
                     TextWidget.heading(
                       destination.name,
-                      style: Theme.of(context).textTheme.headlineSmall,
+                      style: textStyle.headlineSmall
+                          ?.copyWith(color: Colors.white),
                     ),
                   ],
                 ),

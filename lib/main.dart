@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:tourism_app/app/service/di.dart' as di;
-import 'package:tourism_app/favorite/cubit/favorite_cubit.dart';
+import 'package:tourism_app/bookmark/cubit/bookmark_cubit.dart';
 import 'package:tourism_app/launchpad/view/launchpad_screen.dart';
 import 'package:tourism_app/theme/cubit/theme_cubit.dart';
 import 'package:tourism_app/theme/theme.dart';
@@ -33,7 +33,7 @@ class App extends StatelessWidget {
           create: (_) => di.di.get<ThemeCubit>(),
         ),
         BlocProvider(
-          create: (_) => di.di.get<FavoriteCubit>(),
+          create: (_) => di.di.get<BookmarkCubit>(),
         ),
       ],
       child: const AppView(),

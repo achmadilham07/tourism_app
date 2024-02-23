@@ -38,8 +38,8 @@ class LaunchpadBody extends StatelessWidget {
   Widget build(BuildContext context) {
     final state = context.watch<LaunchpadCubit>().state;
     return switch (state) {
-      // TODO: Fix me later using FavoriteScreen
-      LaunchpadState.favorite => const SizedBox(),
+      // TODO: Fix me later using BookmarkScreen
+      LaunchpadState.bookmark => const SizedBox(),
       LaunchpadState.destination => const DestinationScreen(),
       LaunchpadState.setting => const SettingScreen(),
     };
@@ -56,9 +56,9 @@ class LaunchpadBottomNavigationBar extends StatelessWidget {
       onTap: (value) => context.read<LaunchpadCubit>().update(value),
       items: const [
         BottomNavigationBarItem(
-          icon: Icon(Icons.favorite_border),
-          activeIcon: Icon(Icons.favorite),
-          label: "Favorite",
+          icon: Icon(Icons.bookmark_border),
+          activeIcon: Icon(Icons.bookmark),
+          label: "Bookmark",
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.list),
