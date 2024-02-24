@@ -56,6 +56,7 @@ class DestinationWidget extends StatelessWidget {
               right: 0,
               child: BookmarkButton(
                 destination: destination,
+                defaultColor: Colors.white,
               ),
             ),
             Positioned(

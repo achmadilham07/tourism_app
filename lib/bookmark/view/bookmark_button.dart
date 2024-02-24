@@ -8,9 +8,11 @@ class BookmarkButton extends StatelessWidget {
   const BookmarkButton({
     super.key,
     required this.destination,
+    this.defaultColor,
   });
 
   final Destination destination;
+  final Color? defaultColor;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class BookmarkButton extends StatelessWidget {
       builder: (context, isBookmark) => IconButton(
         icon: Icon(
           isBookmark ? Icons.bookmark : Icons.bookmark_border,
-          color: isBookmark ? Colors.orange : Colors.white,
+          color: isBookmark ? Colors.orange : defaultColor,
         ),
         onPressed: () {
           context.read<BookmarkCubit>().toggleBookmark(destination);
