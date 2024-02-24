@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "999665064318",
+    "project_id": "tourism-app-belajarubic",
+    "storage_bucket": "tourism-app-belajarubic.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:999665064318:android:1527b4da9c0cb00e2ffb2f",
+        "android_client_info": {
+          "package_name": "com.example.tourism_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_Eusk241n8DG_xVxnxWll4_3WvOS5XgY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

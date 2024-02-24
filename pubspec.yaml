@@ -26,6 +26,7 @@ dependencies:
   pub_semver: 2.1.4
   pusher_beams: 1.1.1
   restart_app: 1.2.1
+  firebase_core: 2.25.4
 
 dev_dependencies:
   flutter_test:
