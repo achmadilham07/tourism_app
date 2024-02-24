@@ -1,11 +1,11 @@
 {
-    "name": "tourism_app",
-    "short_name": "tourism_app",
+    "name": "Tourism App",
+    "short_name": "Tourism",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#ADC6FF",
+    "theme_color": "#005AC1",
+    "description": "The tourism app application is a platform that provides information to help users explore tourist destinations.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
