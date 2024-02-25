@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tourism_app/app/service/di.dart';
 import 'package:tourism_app/launchpad/cubit/launchpad_cubit.dart';
 import 'package:tourism_app/destinations/view/destination_screen.dart';
@@ -56,18 +57,18 @@ class LaunchpadBottomNavigationBar extends StatelessWidget {
       onTap: (value) => context.read<LaunchpadCubit>().update(value),
       items: const [
         BottomNavigationBarItem(
-          icon: Icon(Icons.bookmark_border),
-          activeIcon: Icon(Icons.bookmark),
+          icon: FaIcon(FontAwesomeIcons.bookmark),
+          activeIcon: FaIcon(FontAwesomeIcons.solidBookmark),
           label: "Bookmark",
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.list),
-          activeIcon: Icon(Icons.list_alt),
+          icon: FaIcon(FontAwesomeIcons.list),
+          activeIcon: FaIcon(FontAwesomeIcons.tableList),
           label: "Destination",
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.settings),
-          activeIcon: Icon(Icons.settings_applications),
+          icon: FaIcon(FontAwesomeIcons.gear),
+          activeIcon: FaIcon(FontAwesomeIcons.gears),
           label: "Setting",
         ),
       ],

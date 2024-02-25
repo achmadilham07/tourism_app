@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tourism_app/app/widget/logo_widget.dart';
 import 'package:tourism_app/app/widget/text_widget.dart';
 import 'package:tourism_app/theme/widget/theme_toggle.dart';
@@ -30,6 +31,7 @@ class SettingView extends StatelessWidget {
           title: const TextWidget('Source Code'),
           subtitle: const TextWidget('View the full source code on GitHub'),
           trailing: const Icon(Icons.chevron_right),
+          trailing: const FaIcon(Icons.chevron_right),
           onTap: () => launchUrlString(
             'https://github.com/achmadilham07/tourism_app',
           ),
@@ -38,6 +40,7 @@ class SettingView extends StatelessWidget {
           title: const TextWidget('Licenses'),
           subtitle: const TextWidget('View the licenses of the libraries used'),
           trailing: const Icon(Icons.chevron_right),
+          trailing: const FaIcon(Icons.chevron_right),
           onTap: () => showLicensePage(
             context: context,
             applicationIcon: const LogoWidget(height: 120),

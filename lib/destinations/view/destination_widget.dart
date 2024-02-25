@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tourism_app/app/widget/text_widget.dart';
 import 'package:tourism_app/bookmark/view/bookmark_button.dart';
 import 'package:tourism_app/destinations/model/destination.dart';
@@ -74,6 +75,8 @@ class DestinationWidget extends StatelessWidget {
                       children: [
                         const Icon(
                           Icons.favorite,
+                        const FaIcon(
+                          FontAwesomeIcons.solidHeart,
                           color: Colors.red,
                         ),
                         TextWidget(

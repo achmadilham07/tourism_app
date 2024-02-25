@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tourism_app/app/widget/text_widget.dart';
 import 'package:tourism_app/bookmark/cubit/bookmark_cubit.dart';
 import 'package:tourism_app/destinations/view/destination_screen.dart';
@@ -37,8 +38,8 @@ class EmptyBookmarks extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(
-              Icons.bookmarks_outlined,
+            const FaIcon(
+              FontAwesomeIcons.bookBookmark,
               color: Colors.orange,
               size: 64,
             ),
