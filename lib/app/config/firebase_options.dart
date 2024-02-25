@@ -70,6 +70,6 @@ class DefaultFirebaseOptions {
     messagingSenderId: '999665064318',
     projectId: 'tourism-app-belajarubic',
     storageBucket: 'tourism-app-belajarubic.appspot.com',
-    iosBundleId: 'com.example.tourismApp',
+    iosBundleId: 'com.belajarubic.tourismApp',
   );
 }

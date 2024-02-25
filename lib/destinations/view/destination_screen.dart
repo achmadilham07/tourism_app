@@ -34,8 +34,24 @@ class DestinationView extends StatelessWidget {
           DestinationListLoading() => const Center(
               child: CircularProgressIndicator(),
             ),
-          DestinationListLoaded(destinations: var item) => DestinationList(
-              destinations: item.destinations,
+          DestinationListLoaded(destinations: var item) => LayoutBuilder(
+              builder: (context, constraints) {
+                final width = constraints.maxWidth;
+                final crossAxisCount = switch (width) {
+                  >= 450 && < 600 => 1,
+                  >= 600 && < 900 => 2,
+                  >= 900 && < 1400 => 3,
+                  >= 1400 => 4,
+                  _ => 1,
+                };
+                return switch (crossAxisCount) {
+                  1 => DestinationList(destinations: item.destinations),
+                  _ => DestinationGrid(
+                      destinations: item.destinations,
+                      crossAxisCount: crossAxisCount,
+                    ),
+                };
+              },
             ),
           DestinationListError(message: var msg) => ErrorScreen(
               message: msg,
@@ -74,6 +90,42 @@ class DestinationList extends StatelessWidget {
       },
       separatorBuilder: (context, index) {
         return const SizedBox.square(dimension: 12);
+      },
+      itemCount: destinations.length,
+    );
+  }
+}
+
+class DestinationGrid extends StatelessWidget {
+  const DestinationGrid({
+    super.key,
+    required this.destinations,
+    this.crossAxisCount = 2,
+  });
+
+  final List<Destination> destinations;
+  final int crossAxisCount;
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: crossAxisCount,
+        crossAxisSpacing: 8,
+        mainAxisSpacing: 8,
+      ),
+      itemBuilder: (context, index) {
+        final item = destinations[index];
+        return DestinationWidget(
+          destination: item,
+          onTap: () {
+            Navigator.of(context).push(
+              DestinationDetailScreen.route(
+                destination: item,
+              ),
+            );
+          },
+        );
       },
       itemCount: destinations.length,
     );

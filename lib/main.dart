@@ -7,6 +7,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:tourism_app/app/service/di.dart' as di;
 import 'package:tourism_app/bookmark/cubit/bookmark_cubit.dart';
 import 'package:tourism_app/firebase_options.dart';
+import 'package:tourism_app/app/config/firebase_options.dart';
 import 'package:tourism_app/launchpad/view/launchpad_screen.dart';
 import 'package:tourism_app/theme/cubit/theme_cubit.dart';
 import 'package:tourism_app/theme/theme.dart';

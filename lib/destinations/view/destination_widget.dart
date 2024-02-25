@@ -50,6 +50,8 @@ class DestinationWidget extends StatelessWidget {
               child: Image.network(
                 destination.image,
                 fit: BoxFit.cover,
+                width: double.infinity,
+                height: double.infinity,
               ),
             ),
             Positioned(
@@ -73,8 +75,6 @@ class DestinationWidget extends StatelessWidget {
                     Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        const Icon(
-                          Icons.favorite,
                         const FaIcon(
                           FontAwesomeIcons.solidHeart,
                           color: Colors.red,
