@@ -4,7 +4,9 @@ import 'package:tourism_app/bookmark/cubit/bookmark_cubit.dart';
 import 'package:tourism_app/launchpad/cubit/launchpad_cubit.dart';
 import 'package:tourism_app/repository/local/load_asset.dart';
 import 'package:tourism_app/repository/local/local_service.dart';
+import 'package:tourism_app/setting/cubit/setting_cubit.dart';
 import 'package:tourism_app/theme/cubit/theme_cubit.dart';
+import 'package:tourism_app/updater/cubit/updater_cubit.dart';
 
 final di = GetIt.instance;
 
@@ -29,5 +31,13 @@ void init() {
 
   di.registerFactory(
     () => BookmarkCubit(),
+  );
+
+  di.registerFactory(
+    () => UpdaterCubit(),
+  );
+
+  di.registerFactory(
+    () => SettingCubit(),
   );
 }
