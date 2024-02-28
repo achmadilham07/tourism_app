@@ -50,8 +50,6 @@ class DestinationWidget extends StatelessWidget {
               child: Image.network(
                 destination.image,
                 fit: BoxFit.cover,
-                width: double.infinity,
-                height: double.infinity,
               ),
             ),
             Positioned(
