@@ -17,7 +17,7 @@ class UpdaterCubit extends Cubit<UpdaterState> {
     await PusherBeams.instance.onMessageReceivedInTheForeground(
       (_) => checkForUpdates(),
     );
-    await checkForUpdates();
+    // await checkForUpdates();
   }
 
   Future<void> checkForUpdates() async {
