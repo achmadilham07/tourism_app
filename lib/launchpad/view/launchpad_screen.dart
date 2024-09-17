@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tourism_app/app/service/di.dart';
+import 'package:tourism_app/bookmark/view/bookmark_screen.dart';
 import 'package:tourism_app/launchpad/cubit/launchpad_cubit.dart';
 import 'package:tourism_app/destinations/view/destination_screen.dart';
 import 'package:tourism_app/setting/view/setting_screen.dart';
@@ -40,7 +41,8 @@ class LaunchpadBody extends StatelessWidget {
     final state = context.watch<LaunchpadCubit>().state;
     return switch (state) {
       // TODO: Fix me later using BookmarkScreen
-      LaunchpadState.bookmark => const SizedBox(),
+      LaunchpadState.bookmark => const BookmarkScreen(),
+      // LaunchpadState.bookmark => const SizedBox(),
       LaunchpadState.destination => const DestinationScreen(),
       LaunchpadState.setting => const SettingScreen(),
     };
