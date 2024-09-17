@@ -6,7 +6,6 @@ import 'package:tourism_app/app/widget/logo_widget.dart';
 import 'package:tourism_app/app/widget/text_widget.dart';
 import 'package:tourism_app/setting/cubit/setting_cubit.dart';
 import 'package:tourism_app/theme/widget/theme_toggle.dart';
-import 'package:tourism_app/updater/cubit/updater_cubit.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class SettingScreen extends StatelessWidget {
@@ -34,12 +33,11 @@ class SettingView extends StatelessWidget {
         TextWidget.heading('Preferences', style: headingStyle),
         const ThemeToggle(),
         TextWidget.heading('About', style: headingStyle),
-        ListTile(
-          title: const Row(
+        const ListTile(
+          title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [Text('Version'), AppVersion()],
           ),
-          onTap: () => context.read<UpdaterCubit>().checkForUpdates(),
         ),
         ListTile(
           title: const TextWidget('Source Code'),
