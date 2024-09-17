@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tourism_app/app/widget/text_widget.dart';
 import 'package:tourism_app/bookmark/view/bookmark_button.dart';
 import 'package:tourism_app/app/widget/app_bar.dart';
@@ -73,6 +74,19 @@ class DestinationDetailView extends StatelessWidget {
                     ),
                   ),
                   // TODO: Fix me later, add likes
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const FaIcon(
+                        FontAwesomeIcons.solidHeart,
+                        color: Colors.red,
+                      ),
+                      TextWidget(
+                        destination.like.toString(),
+                        style: theme.textTheme.titleMedium,
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
