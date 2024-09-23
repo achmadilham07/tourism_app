@@ -42,7 +42,6 @@ class LaunchpadBody extends StatelessWidget {
     return switch (state) {
       // TODO: Fix me later using BookmarkScreen
       LaunchpadState.bookmark => const BookmarkScreen(),
-      // LaunchpadState.bookmark => const SizedBox(),
       LaunchpadState.destination => const DestinationScreen(),
       LaunchpadState.setting => const SettingScreen(),
     };

@@ -13,9 +13,10 @@ class LogoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: Fix me later using Selector
-    // const logo = 'assets/logo.png';
-    final logo = context.select((ThemeCubit bloc) =>
-        bloc.state.isLight ? 'assets/logo.png' : 'assets/logo-white.png');
+    final logo = context.select(
+      (ThemeCubit cubit) =>
+          cubit.state.isLight ? 'assets/logo.png' : 'assets/logo-white.png',
+    );
     return Image.asset(logo, height: height);
   }
 }

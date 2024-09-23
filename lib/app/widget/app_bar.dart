@@ -22,7 +22,6 @@ class DestinationAppBar extends StatelessWidget implements PreferredSizeWidget {
         child: LogoWidget(height: kToolbarHeight + addAppBarHeight),
       ),
       centerTitle: true,
-      shadowColor: Colors.transparent,
       actions: actions,
     );
   }
@@ -44,7 +43,6 @@ class DestinationSliverAppBar extends StatelessWidget {
         child: LogoWidget(height: kToolbarHeight + addAppBarHeight),
       ),
       centerTitle: true,
-      shadowColor: Colors.transparent,
       snap: true,
       floating: true,
       actions: actions,

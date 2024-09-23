@@ -11,8 +11,6 @@ import 'package:tourism_app/app/config/firebase_options.dart';
 import 'package:tourism_app/launchpad/view/launchpad_screen.dart';
 import 'package:tourism_app/theme/cubit/theme_cubit.dart';
 import 'package:tourism_app/theme/theme.dart';
-import 'package:tourism_app/updater/cubit/updater_cubit.dart';
-import 'package:tourism_app/updater/widget/update_listener.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -45,9 +43,6 @@ class App extends StatelessWidget {
           BlocProvider(
             create: (_) => vDI.get<BookmarkCubit>(),
           ),
-          BlocProvider(
-            create: (_) => vDI.get<UpdaterCubit>()..init(),
-          ),
         ],
         child: const AppView(),
       ),
@@ -69,7 +64,7 @@ class AppView extends StatelessWidget {
       theme: lightTheme,
       darkTheme: darkTheme,
       themeMode: themeMode,
-      home: const UpdateListener(child: LaunchpadScreen()),
+      home: const LaunchpadScreen(),
     );
   }
 }
