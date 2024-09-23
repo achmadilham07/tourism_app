@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:tourism_app/app/service/di.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:tourism_app/app/widget/logo_widget.dart';
 import 'package:tourism_app/app/widget/text_widget.dart';
-import 'package:tourism_app/setting/cubit/setting_cubit.dart';
 import 'package:tourism_app/theme/widget/theme_toggle.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -13,10 +11,7 @@ class SettingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => di.get<SettingCubit>()..init(),
-      child: const SettingView(),
-    );
+    return const SettingView();
   }
 }
 
@@ -67,17 +62,15 @@ class AppVersion extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final version = context.select(
-      (SettingCubit cubit) {
-        final state = cubit.state;
-        final packageVersion =
-            '''${state.version.major}.${state.version.minor}.${state.version.patch}''';
-        final buildNumber = '${state.version.build.singleOrNull ?? 0}';
-        final patchNumber =
-            state.patchNumber != null ? ' #${state.patchNumber}' : '';
-        return '$packageVersion ($buildNumber)$patchNumber';
+    return FutureBuilder<PackageInfo>(
+      future: PackageInfo.fromPlatform(),
+      builder: (context, snapshot) {
+        final data = snapshot.data;
+        if (snapshot.hasData && data != null) {
+          return Text(data.version);
+        }
+        return const SizedBox.shrink();
       },
     );
-    return Text(version);
   }
 }
