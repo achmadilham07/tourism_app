@@ -28,16 +28,13 @@ class DestinationWidget extends StatelessWidget {
         onTap: onTap,
         borderRadius: border,
         child: Stack(
+          fit: StackFit.passthrough,
           children: [
-            ColorFiltered(
-              colorFilter: const ColorFilter.mode(
-                Colors.black26,
-                BlendMode.multiply,
-              ),
-              child: Image.network(
-                destination.image,
-                fit: BoxFit.cover,
-              ),
+            Image.network(
+              destination.image,
+              fit: BoxFit.cover,
+              colorBlendMode: BlendMode.multiply,
+              color: Colors.black26,
             ),
             Positioned(
               top: 0,
@@ -47,7 +44,7 @@ class DestinationWidget extends StatelessWidget {
                 defaultColor: Colors.white,
               ),
             ),
-            Positioned(
+            Positioned.fill(
               bottom: 0,
               right: 0,
               child: Padding(

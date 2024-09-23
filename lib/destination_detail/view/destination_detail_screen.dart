@@ -73,7 +73,6 @@ class DestinationDetailView extends StatelessWidget {
                       ],
                     ),
                   ),
-                  // TODO: Fix me later, add likes
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
