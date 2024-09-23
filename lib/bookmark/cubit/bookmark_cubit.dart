@@ -8,7 +8,7 @@ class BookmarkCubit extends HydratedCubit<BookmarkState> {
   BookmarkCubit() : super(const BookmarkState());
 
   void toggleBookmark(Destination destination) {
-    final destinations = [...state.destinations];
+    final destinations = [...state.destinations].reversed.toList();
     destinations.contains(destination)
         ? destinations.remove(destination)
         : destinations.add(destination);

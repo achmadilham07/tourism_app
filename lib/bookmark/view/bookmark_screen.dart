@@ -19,8 +19,9 @@ class BookmarkView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<BookmarkCubit, BookmarkState>(
       builder: (context, state) {
-        if (state.destinations.isEmpty) return const EmptyBookmarks();
-        return DestinationList(destinations: state.destinations);
+        final destinations = state.destinations;
+        if (destinations.isEmpty) return const EmptyBookmarks();
+        return AdaptiveDestinationBody(destinations: destinations);
       },
     );
   }

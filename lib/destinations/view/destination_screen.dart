@@ -14,7 +14,7 @@ class DestinationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => di.get<DestinationListCubit>(),
-      child: const Scaffold(body: DestinationView()),
+      child: const DestinationView(),
     );
   }
 }
@@ -24,8 +24,9 @@ class DestinationView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final destinationListCubit = context.read<DestinationListCubit>();
     Future.microtask(() {
-      context.read<DestinationListCubit>().getDestinations();
+      destinationListCubit.getDestinations();
     });
 
     return BlocBuilder<DestinationListCubit, DestinationListState>(
@@ -34,29 +35,44 @@ class DestinationView extends StatelessWidget {
           DestinationListLoading() => const Center(
               child: CircularProgressIndicator(),
             ),
-          DestinationListLoaded(destinations: var item) => LayoutBuilder(
-              builder: (context, constraints) {
-                final width = constraints.maxWidth;
-                final crossAxisCount = switch (width) {
-                  >= 450 && < 600 => 1,
-                  >= 600 && < 900 => 2,
-                  >= 900 && < 1400 => 3,
-                  >= 1400 => 4,
-                  _ => 1,
-                };
-                return switch (crossAxisCount) {
-                  1 => DestinationList(destinations: item.destinations),
-                  _ => DestinationGrid(
-                      destinations: item.destinations,
-                      crossAxisCount: crossAxisCount,
-                    ),
-                };
-              },
-            ),
+          DestinationListLoaded(destinations: var item) =>
+            AdaptiveDestinationBody(destinations: item.destinations),
           DestinationListError(message: var msg) => ErrorScreen(
               message: msg,
             ),
           _ => const SizedBox(),
+        };
+      },
+    );
+  }
+}
+
+class AdaptiveDestinationBody extends StatelessWidget {
+  const AdaptiveDestinationBody({
+    super.key,
+    required this.destinations,
+  });
+
+  final List<Destination> destinations;
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final width = constraints.maxWidth;
+        final crossAxisCount = switch (width) {
+          >= 450 && < 600 => 1,
+          >= 600 && < 900 => 2,
+          >= 900 && < 1400 => 3,
+          >= 1400 => 4,
+          _ => 1,
+        };
+        return switch (crossAxisCount) {
+          1 => DestinationList(destinations: destinations),
+          _ => DestinationGrid(
+              destinations: destinations,
+              crossAxisCount: crossAxisCount,
+            ),
         };
       },
     );

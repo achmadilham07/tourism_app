@@ -18,7 +18,7 @@ class DestinationAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       title: const Padding(
-        padding: EdgeInsets.only(bottom: 8),
+        padding: EdgeInsets.symmetric(vertical: 8),
         child: LogoWidget(height: kToolbarHeight + addAppBarHeight),
       ),
       centerTitle: true,

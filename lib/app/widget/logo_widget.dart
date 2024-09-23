@@ -12,7 +12,6 @@ class LogoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: Fix me later using Selector
     final logo = context.select(
       (ThemeCubit cubit) =>
           cubit.state.isLight ? 'assets/logo.png' : 'assets/logo-white.png',
