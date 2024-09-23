@@ -15,19 +15,6 @@ class DestinationWidget extends StatelessWidget {
   final Function()? onTap;
 
   final border = const BorderRadius.all(Radius.circular(16));
-  final gradient = const LinearGradient(
-      begin: Alignment.topLeft,
-      end: Alignment.bottomRight,
-      colors: [
-        Colors.white,
-        Colors.transparent,
-        Colors.transparent,
-      ],
-      stops: [
-        0.2,
-        0.8,
-        1.0
-      ]);
 
   @override
   Widget build(BuildContext context) {
