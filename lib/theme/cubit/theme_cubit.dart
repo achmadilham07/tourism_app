@@ -5,7 +5,8 @@ part 'theme_state.dart';
 class ThemeCubit extends HydratedCubit<ThemeState> {
   ThemeCubit() : super(ThemeState.light);
 
-  void toggle() => emit(state.isLight ? ThemeState.dark : ThemeState.light);
+  void toggle([ThemeState? value]) =>
+      emit(value ?? (state.isLight ? ThemeState.dark : ThemeState.light));
 
   @override
   ThemeState? fromJson(Map<String, dynamic> json) =>

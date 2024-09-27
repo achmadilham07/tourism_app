@@ -9,13 +9,6 @@ class BookmarkScreen extends StatelessWidget {
   const BookmarkScreen({super.key});
 
   @override
-  Widget build(BuildContext context) => const BookmarkView();
-}
-
-class BookmarkView extends StatelessWidget {
-  const BookmarkView({super.key});
-
-  @override
   Widget build(BuildContext context) {
     return BlocBuilder<BookmarkCubit, BookmarkState>(
       builder: (context, state) {

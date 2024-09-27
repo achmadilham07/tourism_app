@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tourism_app/app/widget/text_widget.dart';
-import 'package:tourism_app/bookmark/view/bookmark_button.dart';
+import 'package:tourism_app/bookmark/widget/bookmark_button.dart';
 import 'package:tourism_app/app/widget/app_bar.dart';
 import 'package:tourism_app/destinations/model/destination.dart';
+import 'package:tourism_app/destinations/widget/likes_count.dart';
 
 class DestinationDetailScreen extends StatelessWidget {
   const DestinationDetailScreen({
@@ -65,6 +65,8 @@ class DestinationDetailView extends StatelessWidget {
                         TextWidget(
                           destination.name,
                           style: theme.textTheme.headlineLarge,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
                         ),
                         TextWidget(
                           destination.address,
@@ -73,19 +75,9 @@ class DestinationDetailView extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      const FaIcon(
-                        FontAwesomeIcons.solidHeart,
-                        color: Colors.red,
-                      ),
-                      TextWidget(
-                        destination.like.toString(),
-                        style: theme.textTheme.titleMedium,
-                      ),
-                    ],
-                  ),
+                  LikesCount(
+                    likes: destination.like,
+                  )
                 ],
               ),
             ),

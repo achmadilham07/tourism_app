@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tourism_app/app/widget/text_widget.dart';
 import 'package:tourism_app/launchpad/cubit/launchpad_cubit.dart';
 import 'package:tourism_app/launchpad/model/navigation_item.dart';
 
@@ -40,7 +41,7 @@ class LaunchpadNavigationRail extends StatelessWidget {
             (item) => NavigationRailDestination(
               icon: item.icon,
               selectedIcon: item.selectedIcon,
-              label: Text(item.label),
+              label: TextWidget(item.label),
             ),
           )
           .toList(),

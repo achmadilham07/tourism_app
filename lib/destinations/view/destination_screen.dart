@@ -4,7 +4,7 @@ import 'package:tourism_app/app/service/di.dart';
 import 'package:tourism_app/error/view/error_screen.dart';
 import 'package:tourism_app/destinations/cubit/destination_list_cubit.dart';
 import 'package:tourism_app/destinations/model/destination.dart';
-import 'package:tourism_app/destinations/view/destination_widget.dart';
+import 'package:tourism_app/destinations/widget/destination_widget.dart';
 import 'package:tourism_app/destination_detail/view/destination_detail_screen.dart';
 
 class DestinationScreen extends StatelessWidget {

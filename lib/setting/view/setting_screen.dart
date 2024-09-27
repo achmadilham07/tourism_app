@@ -31,7 +31,7 @@ class SettingView extends StatelessWidget {
         const ListTile(
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [Text('Version'), AppVersion()],
+            children: [TextWidget('Version'), AppVersion()],
           ),
         ),
         ListTile(
@@ -67,7 +67,7 @@ class AppVersion extends StatelessWidget {
       builder: (context, snapshot) {
         final data = snapshot.data;
         if (snapshot.hasData && data != null) {
-          return Text(data.version);
+          return TextWidget(data.version);
         }
         return const SizedBox.shrink();
       },

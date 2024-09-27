@@ -29,14 +29,16 @@ class LaunchpadLargeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       children: [
-        LaunchpadNavigationRail(),
-        VerticalDivider(thickness: 1, width: 1),
+        const LaunchpadNavigationRail(),
+        const VerticalDivider(thickness: 1, width: 1),
         Expanded(
           child: Scaffold(
-            appBar: DestinationAppBar(),
-            body: LaunchpadBody(),
+            appBar: const DestinationAppBar(),
+            body: BlocBuilder<LaunchpadCubit, LaunchpadState>(
+              builder: (context, state) => LaunchpadBody(state: state),
+            ),
           ),
         ),
       ],
@@ -49,20 +51,26 @@ class LaunchpadSmallView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: DestinationAppBar(),
-      body: LaunchpadBody(),
-      bottomNavigationBar: LaunchpadBottomNavigationBar(),
+    return Scaffold(
+      appBar: const DestinationAppBar(),
+      body: BlocBuilder<LaunchpadCubit, LaunchpadState>(
+        builder: (context, state) => LaunchpadBody(state: state),
+      ),
+      bottomNavigationBar: const LaunchpadBottomNavigationBar(),
     );
   }
 }
 
 class LaunchpadBody extends StatelessWidget {
-  const LaunchpadBody({super.key});
+  final LaunchpadState state;
+
+  const LaunchpadBody({
+    super.key,
+    required this.state,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final state = context.watch<LaunchpadCubit>().state;
     return switch (state) {
       LaunchpadState.bookmark => const BookmarkScreen(),
       LaunchpadState.destination => const DestinationScreen(),
