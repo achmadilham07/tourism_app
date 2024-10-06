@@ -20,8 +20,6 @@
             "args": [
                 "-d",
                 "chrome",
-                "--web-renderer",
-                "html",
                 "--web-port",
                 "5000"
             ],
@@ -35,8 +33,6 @@
             "args": [
                 "-d",
                 "chrome",
-                "--web-renderer",
-                "html",
                 "--web-port",
                 "5000"
             ],

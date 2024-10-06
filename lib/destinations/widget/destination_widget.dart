@@ -14,6 +14,7 @@ class DestinationWidget extends StatelessWidget {
   final Destination destination;
   final Function()? onTap;
 
+  // fix-01: set the rounded border to 16
   final border = const BorderRadius.all(Radius.circular(0));
 
   @override
@@ -35,6 +36,7 @@ class DestinationWidget extends StatelessWidget {
               Image.network(
                 destination.image,
                 fit: BoxFit.cover,
+                // fix-02: set color to black26 and blend with multiply
               ),
               Positioned(
                 top: 0,
